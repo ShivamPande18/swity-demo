@@ -1,6 +1,7 @@
 import React from 'react'
 import { KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard } from 'react-native';
 
+//KEYBOARD AVOID WRAPPER COMPONENT SO THAT THE KEYBOARD DOESN'T COVER THE INPUT FIELDS
 function KeyboardAvoidWrapper({ children }: { children: React.ReactNode }) {
     return (
         <KeyboardAvoidingView

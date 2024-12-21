@@ -4,11 +4,17 @@ import { OtpInput } from "react-native-otp-entry";
 import { useState, useEffect } from 'react';
 import Bg from '../../assets/svg/Bg';
 
+//OTP SCREEN COMPONENT
+
 export default function OTPScreen() {
+
+    //GET PHONE NUMBER AND COUNTRY CODE FROM PREVIOUS SCREEN
     const { phone, ccode } = useLocalSearchParams();
+
     const [canResend, setCanResend] = useState(false);
     const [time, setTime] = useState(10);
 
+    //COUNTDOWN FOR RESENDING OTP
     useEffect(() => {
         const interval = setInterval(() => {
             setTime(time - 1);
@@ -43,14 +49,14 @@ export default function OTPScreen() {
                     <Text className='text-black text-4xl text-center font-bold'>Verify Phone</Text>
 
                     <View className='w-full'>
-                        {/* <Text className='text-black text-md text-center'>Code has been sent to <Text className='font-bold text-black text-md text-center'>+91 7302089977</Text> </Text> */}
+
                         <Text className='text-black text-md text-center'>Code has been sent to <Text className='font-bold text-black text-md text-center'> {ccode ? `+${ccode} ${phone}` : phone}</Text> </Text>
-                        {/* <Text className='font-bold text-black text-md text-center'>{ccode ? `+${ccode} ${phone}` : phone}</Text> */}
+
                     </View>
 
 
 
-
+                    {/* OTP INPUT COMPONENT */}
                     <OtpInput
                         // onChangeText={(otp) => console.log(otp)}
                         numberOfDigits={4}
@@ -59,6 +65,8 @@ export default function OTPScreen() {
                             containerStyle: styles.otpContainer,
                         }}
                     />
+
+                    {/* ALLOWS YOU TO RESEND OTP AFTER 10 SECONDS */}
                     <View className='w-full'>
                         <Text className='text-black text-md text-center mt-5'>Didn't get OTP?
                             <Text className='font-bold text-black text-md text-center'> wait: 00:{time < 10 ? '0' + time : time}</Text>

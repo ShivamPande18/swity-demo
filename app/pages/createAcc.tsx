@@ -7,6 +7,8 @@ import Bg from '../../assets/svg/Bg';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import KeyboardAvoidWrapper from '@/components/KeyboardAvoidWrapper';
 
+//CREATE ACCOUNT COMPONENT
+
 export default function CreateAccount() {
     LogBox.ignoreAllLogs();
 
@@ -15,9 +17,12 @@ export default function CreateAccount() {
     const [ccode, setCcode] = useState('91');
     const [password, setPassword] = useState('');
     const [passFocus, setPassFocus] = useState(false);
+
+    //PASSWORD STRENGTH 
     const [passStrength, setPassStrength] = useState(0);
     const [showPassword, setShowPassword] = useState(false);
 
+    //PASSWORD STRENGTH INDICATOR
     const width = ["w-1/4", "w-1/2", "w-3/4", "w-3/4", "w-full"];
     const passStrengthText = ["Bad", "Weak", "Good", "Good", "Strong"];
     const colors = ["bg-red-500", "bg-yellow-500", "bg-blue-500", "bg-blue-500", "bg-green-500"];
@@ -44,6 +49,7 @@ export default function CreateAccount() {
     }
 
     function handlePassChange(e: string) {
+        //PASSWORD STRENGTH HAS SCORES FROM 0 TO 4 OR BAD TO STRONG
         setPassword(e);
         let score = 0;
         if (e.length < 8) score = 0;
@@ -125,6 +131,7 @@ export default function CreateAccount() {
                         </View>
 
                         {
+                            //SHOW PASSWORD STRENGTH WHEN IN FOCUS AND PASSWORD IS NOT EMPTY AND STRENGTH IS GREATER THAN 0
                             password == "" || (passFocus == false && passStrength > 0) ? null : <View className="flex-row justify-between items-center mb-4">
 
                                 <View className="w-1/2 bg-gray-300 rounded-xl h-3 overflow-hidden">
@@ -139,10 +146,11 @@ export default function CreateAccount() {
                             </View>
                         }
 
+
+                        {/* THIS IS THE PHONE NUMBER INPUT COMPONENE, RAISES AND ERROR DUE TO CHANGES IN DEFAULT PROPS IN REACT NATIVE PHONE NUMBER INPUT PACKAGE */}
                         <PhoneInput
                             value={phone}
                             defaultCode='IN'
-
                             onChangeText={setPhone}
                             onChangeCountry={(country) => setCcode(country.callingCode[0])}
                             textContainerStyle={{ backgroundColor: "#e5e7eb" }}
@@ -157,11 +165,6 @@ export default function CreateAccount() {
                     </View>
 
                 </View>
-
-                <Button
-                    label="Done"
-                    handlePress={() => router.push('/pages/otp')}
-                />
 
             </View>
         </KeyboardAvoidWrapper>

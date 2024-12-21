@@ -3,6 +3,8 @@ import { Link, router } from 'expo-router';
 import Button from '../components/Button';
 import Bg from '../assets/svg/Bg';
 
+//HOME PAGE
+
 export default function Index() {
   return (
     <View className="bg-white h-full w-full">

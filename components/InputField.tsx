@@ -1,5 +1,6 @@
 import { StyleSheet, View, Pressable, Text, TextInput } from 'react-native';
 
+//MODULAR INPUT FIELD COMPONENT
 type Props = {
     value?: string;
     onChangeText?: (text: string) => void;

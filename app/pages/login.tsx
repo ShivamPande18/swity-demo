@@ -6,6 +6,8 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import Bg from '../../assets/svg/Bg';
 import KeyboardAvoidWrapper from '@/components/KeyboardAvoidWrapper';
 
+//LOGIN PAGE COMPONENT
+
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -17,6 +19,7 @@ export default function Login() {
     }
 
     function handlePress() {
+        //VALIDATION FOR LOGIN
         if (email === '' || password === '') alert('All fields are required');
         else if (!validEmail(email)) alert('Invalid Email');
         else {
@@ -55,6 +58,7 @@ export default function Login() {
                         />
 
                         {
+                            //ERROR FOR EMAIL
                             (validEmail(email) || email == "") ? null : <Text className='text-red-500 ml-2'>Invalid Email</Text>
                         }
 
@@ -69,6 +73,7 @@ export default function Login() {
                                 onChangeText={setPassword}
                             />
 
+                            {/* TOGGLE PASSWORD VISIBILITY */}
                             <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
                                 <Ionicons name={showPassword ? "eye-off" : "eye"} size={25} color="black" />
                             </TouchableOpacity>
