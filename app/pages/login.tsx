@@ -1,8 +1,9 @@
-import { Text, View, StyleSheet, TextInput } from 'react-native';
-import Button from '../components/Button';
+import { Text, View, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import Button from '../../components/Button';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import Bg from './Bg';
+import Octicons from '@react-native-vector-icons/octicons';
+import Bg from '../../assets/svg/Bg';
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -53,13 +54,22 @@ export default function Login() {
                         (validEmail(email) || email == "") ? null : <Text className='text-red-500 ml-2'>Invalid Email</Text>
                     }
 
-                    <TextInput
-                        className='w-full bg-gray-200 p-3 rounded mt-4'
-                        placeholder='Password'
-                        secureTextEntry={true}
-                        value={password}
-                        onChangeText={setPassword}
-                    />
+                    <View className='flex flex-row justify-between'>
+
+                        <TextInput
+                            className='w-full bg-gray-200 p-3 rounded mt-4'
+                            placeholder='Password'
+                            secureTextEntry={true}
+                            value={password}
+                            onChangeText={setPassword}
+                        />
+
+                        <TouchableOpacity>
+                            <Octicons name='eye' color="#ff0000" size={20} />
+                        </TouchableOpacity>
+
+                    </View>
+
 
                     <Button
                         label="Login"

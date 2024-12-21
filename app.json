@@ -32,6 +32,15 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/SpaceMono-Regular.ttf",
+            "./node_modules/@react-native-vector-icons/octicons/Fonts/Octicons.ttf"
+          ]
+        }
       ]
     ],
     "experiments": {

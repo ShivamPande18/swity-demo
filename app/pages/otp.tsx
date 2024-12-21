@@ -1,8 +1,8 @@
-import { Text, View, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
 import { OtpInput } from "react-native-otp-entry";
 import { useState, useEffect } from 'react';
-import Bg from './Bg';
+import Bg from '../../assets/svg/Bg';
 
 export default function OTPScreen() {
     const { phone, ccode } = useLocalSearchParams();

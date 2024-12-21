@@ -1,9 +1,9 @@
 import { Text, View, StyleSheet, TextInput, LogBox } from 'react-native';
-import Button from '../components/Button';
+import Button from '../../components/Button';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import PhoneInput from "react-native-phone-number-input";
-import Bg from './Bg';
+import Bg from '../../assets/svg/Bg';
 
 export default function CreateAccount() {
     LogBox.ignoreAllLogs();
@@ -63,7 +63,7 @@ export default function CreateAccount() {
             setEmail('');
             setPassword('');
             setPhone('');
-            router.push({ pathname: '/otp', params: { phone, ccode } });
+            router.push({ pathname: '/pages/otp', params: { phone, ccode } });
         }
     }
 
@@ -141,7 +141,7 @@ export default function CreateAccount() {
 
             <Button
                 label="Done"
-                handlePress={() => router.push('/otp')}
+                handlePress={() => router.push('/pages/otp')}
             />
 
         </View>

@@ -1,7 +1,7 @@
-import { Text, View, StyleSheet, Pressable, TouchableOpacity } from 'react-native';
+import { Text, View } from 'react-native';
 import { Link, router } from 'expo-router';
 import Button from '../components/Button';
-import Bg from './Bg';
+import Bg from '../assets/svg/Bg';
 
 export default function Index() {
   return (
@@ -24,14 +24,14 @@ export default function Index() {
 
             <Button
               label="Let's Get Started"
-              handlePress={() => router.push('/createAcc')}
+              handlePress={() => router.push('/pages/createAcc')}
             />
 
             {/* <TouchableOpacity className='w-full bg-sky-400 p-3 rounded mt-5' onPress={() => router.push('/createAcc')}>
               <Text className='text-white text-center text-lg font-bold'>Let's Get Started</Text>
             </TouchableOpacity> */}
 
-            <Link href="/login" className='mt-2'>
+            <Link href="/pages/login" className='mt-2'>
               <Text className='text-blue-500 text-center text-md underline'>I already have an account</Text>
             </Link>
 
